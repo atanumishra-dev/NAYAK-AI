@@ -19,9 +19,10 @@ if (process.env.NODE_ENV !== 'test') {
 
 const app = express();
 
-app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:5173']
-}));
+app.use(cors());
+// app.use(cors({
+//    origin: ['http://localhost:3000', 'http://localhost:5173']
+// }));
 app.use(express.json());
 
 // Swagger Config
@@ -57,6 +58,13 @@ const PORT = process.env.PORT || 5000;
 if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);
+        
+        // Log Gemini Integration Status
+        if (process.env.GEMINI_API_KEY) {
+            console.log(`✅ [AI Status] Gemini Integration: ACTIVE (API Key found)`);
+        } else {
+            console.log(`⚠️  [AI Status] Gemini Integration: OFFLINE (Missing GEMINI_API_KEY. Running in Deterministic Demo Mode)`);
+        }
     });
 }
 

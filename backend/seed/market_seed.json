@@ -1,0 +1,34 @@
+{
+  "Dairy": {
+    "commodity": "Milk (Cow)",
+    "market": "Siliguri",
+    "state": "West Bengal",
+    "district": "Darjeeling",
+    "modal_price": 42,
+    "min_price": 40,
+    "max_price": 45,
+    "unit": "Liter",
+    "arrival_date": "2026-09-28",
+    "7_day_avg": 41.5,
+    "30_day_avg": 40.8,
+    "price_trend": "increasing",
+    "source": "AGMARKNET Mock Snapshot",
+    "source_url": "https://agmarknet.gov.in"
+  },
+  "Poultry": {
+    "commodity": "Broiler Chicken",
+    "market": "Pune",
+    "state": "Maharashtra",
+    "district": "Pune",
+    "modal_price": 125,
+    "min_price": 115,
+    "max_price": 135,
+    "unit": "Kg",
+    "arrival_date": "2026-09-28",
+    "7_day_avg": 122,
+    "30_day_avg": 118,
+    "price_trend": "stable",
+    "source": "AGMARKNET Mock Snapshot",
+    "source_url": "https://agmarknet.gov.in"
+  }
+}

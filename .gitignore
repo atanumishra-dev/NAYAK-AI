@@ -1,0 +1,18 @@
+# Global
+node_modules/
+.env
+.DS_Store
+
+# Frontend
+frontend/dist/
+frontend/build/
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/npm-debug.log*
+
+# Backend
+backend/node_modules/
+backend/.env
+backend/npm-debug.log*
+backend/coverage/

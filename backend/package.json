@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@google/genai": "^2.24.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -18,7 +19,7 @@
   },
   "devDependencies": {
     "jest": "^29.6.4",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.1.14",
     "supertest": "^6.3.3"
   }
 }

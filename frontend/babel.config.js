@@ -1,0 +1,5 @@
+export default {
+  presets: [
+    ['@babel/preset-typescript', { isTSX: true, allExtensions: true }]
+  ]
+};

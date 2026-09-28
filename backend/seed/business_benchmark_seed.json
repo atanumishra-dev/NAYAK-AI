@@ -1,0 +1,30 @@
+{
+  "Dairy": {
+    "business_category": "Dairy",
+    "unit": "10-Cow Unit",
+    "typical_project_cost_range": [700000, 1200000],
+    "capacity": "100-150 Liters/day",
+    "estimated_revenue_range": [1200000, 1800000],
+    "operating_cost_ratio": 0.65,
+    "working_capital_ratio": 0.15,
+    "equipment_categories": ["Sheds", "Milking Machines", "Chaff Cutter", "Cooler"],
+    "input_categories": ["Cattle Feed", "Fodder", "Veterinary care"],
+    "risk_categories": ["Disease outbreak", "Feed price volatility", "Cold chain failure"],
+    "assumption_notes": "Illustrative prototype benchmark",
+    "source_type": "prototype_benchmark"
+  },
+  "Poultry": {
+    "business_category": "Poultry",
+    "unit": "1000-Bird Unit",
+    "typical_project_cost_range": [300000, 600000],
+    "capacity": "1000 Birds per cycle",
+    "estimated_revenue_range": [800000, 1200000],
+    "operating_cost_ratio": 0.70,
+    "working_capital_ratio": 0.20,
+    "equipment_categories": ["Sheds", "Feeders", "Drinkers", "Brooders"],
+    "input_categories": ["Chicks", "Poultry Feed", "Medicines"],
+    "risk_categories": ["Bird Flu", "Temperature extremes", "Feed cost variation"],
+    "assumption_notes": "Illustrative prototype benchmark",
+    "source_type": "prototype_benchmark"
+  }
+}

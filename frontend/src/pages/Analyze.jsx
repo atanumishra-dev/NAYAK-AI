@@ -6,6 +6,7 @@ import { MapPin, Briefcase, IndianRupee, ArrowRight, ArrowLeft, CheckCircle, Loa
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { getStates, getDistricts, getVillages } from '@/lib/locationData';
 
 const categories = [
   { id: 'Dairy', icon: '🥛', desc: 'Milk production & distribution' },
@@ -29,18 +30,34 @@ export default function Analyze() {
   const [error, setError] = useState('');
   
   const [formData, setFormData] = useState({
-    village: '', block: '', district: '', state: '',
+    state: '', district: '', village: '',
     business_category: '',
     available_margin: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const availableStates = getStates();
+  const availableDistricts = formData.state ? getDistricts(formData.state) : [];
+  const availableVillages = (formData.state && formData.district) ? getVillages(formData.state, formData.district) : [];
+
+  const handleStateChange = (e) => {
+    setFormData(prev => ({ ...prev, state: e.target.value, district: '', village: '' }));
+  };
+
+  const handleDistrictChange = (e) => {
+    setFormData(prev => ({ ...prev, district: e.target.value, village: '' }));
+  };
+
+  const handleVillageChange = (e) => {
+    setFormData(prev => ({ ...prev, village: e.target.value }));
+  };
+
+  const handleInputChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleDemo = () => {
     setFormData({
-      village: 'Sample Rural', block: 'Sample Block', district: 'Sample District', state: 'Sample State',
+      state: 'Maharashtra', district: 'Pune', village: 'Haveli',
       business_category: 'Dairy',
       available_margin: '100000'
     });
@@ -49,6 +66,19 @@ export default function Analyze() {
 
   const handleSubmit = async () => {
     setError('');
+    
+    if (!formData.state || !formData.district || !formData.village) {
+        setError('Please select state, district, and village.');
+        setStep(1);
+        return;
+    }
+    
+    if (!formData.business_category) {
+        setError('Please select a business category.');
+        setStep(2);
+        return;
+    }
+
     setIsLoading(true);
     setLoadingStep(1);
 
@@ -58,8 +88,9 @@ export default function Analyze() {
 
       const payload = {
         location: {
-          village: formData.village, block: formData.block,
-          district: formData.district, state: formData.state
+          village: formData.village, 
+          district: formData.district, 
+          state: formData.state
         },
         business_category: formData.business_category,
         available_margin: margin
@@ -79,7 +110,7 @@ export default function Analyze() {
         navigate('/results');
       }, 4000);
 
-    } catch (err: any) {
+    } catch (err) {
       setIsLoading(false);
       setError(err.response?.data?.error || err.message || 'We couldn\'t complete the analysis. Your information is safe. Please try again.');
     }
@@ -157,22 +188,52 @@ export default function Analyze() {
                     </div>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label>Village</Label>
-                      <Input name="village" value={formData.village} onChange={handleInputChange} className="h-12 bg-slate-50" placeholder="Enter village" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Block</Label>
-                      <Input name="block" value={formData.block} onChange={handleInputChange} className="h-12 bg-slate-50" placeholder="Enter block" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>District</Label>
-                      <Input name="district" value={formData.district} onChange={handleInputChange} className="h-12 bg-slate-50" placeholder="Enter district" />
-                    </div>
+                  <div className="space-y-6">
                     <div className="space-y-2">
                       <Label>State</Label>
-                      <Input name="state" value={formData.state} onChange={handleInputChange} className="h-12 bg-slate-50" placeholder="Enter state" />
+                      <select 
+                        name="state" 
+                        value={formData.state} 
+                        onChange={handleStateChange}
+                        className="flex h-12 w-full rounded-md border border-input bg-slate-50 px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm"
+                      >
+                        <option value="" disabled>Select State</option>
+                        {availableStates.map(st => (
+                            <option key={st} value={st}>{st}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>District</Label>
+                      <select 
+                        name="district" 
+                        value={formData.district} 
+                        onChange={handleDistrictChange}
+                        disabled={!formData.state}
+                        className="flex h-12 w-full rounded-md border border-input bg-slate-50 px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm disabled:opacity-50"
+                      >
+                        <option value="" disabled>Select District</option>
+                        {availableDistricts.map(dt => (
+                            <option key={dt} value={dt}>{dt}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Village / Block</Label>
+                      <select 
+                        name="village" 
+                        value={formData.village} 
+                        onChange={handleVillageChange}
+                        disabled={!formData.district}
+                        className="flex h-12 w-full rounded-md border border-input bg-slate-50 px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm disabled:opacity-50"
+                      >
+                        <option value="" disabled>Select Village / Block</option>
+                        {availableVillages.map(vil => (
+                            <option key={vil} value={vil}>{vil}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                 </motion.div>
@@ -263,7 +324,7 @@ export default function Analyze() {
               </Button>
             ) : (
               <Button onClick={handleSubmit} className="rounded-full px-8 bg-primary">
-                Generate My Business Plan <ArrowRight className="w-4 h-4 ml-2" />
+                <span className="hidden sm:inline">Generate Business Plan</span><span className="sm:hidden">Generate</span> <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             )}
           </div>

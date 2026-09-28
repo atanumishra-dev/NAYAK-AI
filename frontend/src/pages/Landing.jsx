@@ -37,10 +37,10 @@ export default function Landing() {
               GramVenture AI combines hyper-local market insights, business feasibility analysis, and structured financing guidance to help rural entrepreneurs move from idea to action.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="h-14 px-8 text-base rounded-full shadow-lg hover:shadow-xl transition-all">
+              <Button asChild size="lg" className="h-14 px-6 md:px-8 text-base rounded-full shadow-lg hover:shadow-xl transition-all">
                 <Link to="/analyze">Build My Business Plan <ArrowRight className="ml-2 w-5 h-5" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base rounded-full bg-white/50 backdrop-blur-sm border-slate-200">
+              <Button asChild variant="outline" size="lg" className="h-14 px-6 md:px-8 text-base rounded-full bg-white/50 backdrop-blur-sm border-slate-200">
                 <a href="#how-it-works">Explore How It Works</a>
               </Button>
             </div>
@@ -216,7 +216,7 @@ export default function Landing() {
             <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed max-w-lg">
               GramVenture AI analyzes your available margin to project total costs, financing gaps, and routes you to the appropriate supportive scheme—giving you a realistic financial map.
             </p>
-            <Button asChild variant="secondary" size="lg" className="rounded-full px-8 text-primary font-semibold hover:bg-white/90">
+            <Button asChild variant="secondary" size="lg" className="rounded-full px-6 md:px-8 text-primary font-semibold hover:bg-white/90">
               <Link to="/analyze">Build My Plan</Link>
             </Button>
           </div>
@@ -253,10 +253,10 @@ export default function Landing() {
           Your next business decision starts with better information.
         </h2>
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-10">
-          <Button asChild size="lg" className="h-14 px-10 text-base rounded-full shadow-lg">
+          <Button asChild size="lg" className="h-14 px-8 md:px-10 text-base rounded-full shadow-lg">
             <Link to="/analyze">Build My Business Plan</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="h-14 px-10 text-base rounded-full">
+          <Button asChild variant="outline" size="lg" className="h-14 px-8 md:px-10 text-base rounded-full">
             <Link to="/analyze">Try Demo</Link>
           </Button>
         </div>
