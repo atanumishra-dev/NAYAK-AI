@@ -11,7 +11,7 @@ const connectDB = async () => {
         console.error(`Error: ${err.message}`);
         // Do not exit process in test environment
         if (process.env.NODE_ENV !== 'test') {
-            process.exit(1);
+            // process.exit(1); // Disabled for hackathon deployment resilience
         }
     }
 };
