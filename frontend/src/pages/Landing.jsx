@@ -34,7 +34,7 @@ export default function Landing() {
               Turn Local Opportunity Into a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Bankable</span> Business Plan.
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-xl text-balance">
-              GramVenture AI combines hyper-local market insights, business feasibility analysis, and structured financing guidance to help rural entrepreneurs move from idea to action.
+              Nayak AI combines hyper-local market insights, business feasibility analysis, and structured financing guidance to help rural entrepreneurs move from idea to action.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="h-14 px-6 md:px-8 text-base rounded-full shadow-lg hover:shadow-xl transition-all">
@@ -214,7 +214,7 @@ export default function Landing() {
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Know your numbers before you start.</h2>
             <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed max-w-lg">
-              GramVenture AI analyzes your available margin to project total costs, financing gaps, and routes you to the appropriate supportive scheme—giving you a realistic financial map.
+              Nayak AI analyzes your available margin to project total costs, financing gaps, and routes you to the appropriate supportive scheme—giving you a realistic financial map.
             </p>
             <Button asChild variant="secondary" size="lg" className="rounded-full px-6 md:px-8 text-primary font-semibold hover:bg-white/90">
               <Link to="/analyze">Build My Plan</Link>

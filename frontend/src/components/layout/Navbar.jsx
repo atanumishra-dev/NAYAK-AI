@@ -19,7 +19,7 @@ export function Navbar() {
               <MapPin className="w-4 h-4 absolute -top-1 -right-1 opacity-50" />
               <TrendingUp className="w-5 h-5 z-10" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-slate-900">GramVenture <span className="text-primary">AI</span></span>
+            <span className="font-bold text-xl tracking-tight text-slate-900">Nayak <span className="text-primary">AI</span></span>
           </Link>
         </div>
 

@@ -1,2 +1,2 @@
-# GramVenture AI Backend
-Prototype Node.js backend for GramVenture AI (SIH 2026).
+# Nayak AI Backend
+Prototype Node.js backend for Nayak AI (SIH 2026).

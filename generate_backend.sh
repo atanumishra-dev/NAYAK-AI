@@ -13,14 +13,14 @@ INNEREOF
 
 cat << 'INNEREOF' > .env.example
 APP_ENV=development
-DATABASE_URL=sqlite:///./gramventure.db
+DATABASE_URL=sqlite:///./nayakai.db
 LLM_API_KEY=
 LLM_PROVIDER=
 INNEREOF
 
 cat << 'INNEREOF' > README.md
-# GramVenture AI Backend
-Prototype backend for GramVenture AI (SIH 2026).
+# Nayak AI Backend
+Prototype backend for Nayak AI (SIH 2026).
 INNEREOF
 
 cat << 'INNEREOF' > app/__init__.py
@@ -34,7 +34,7 @@ from app.database import engine, Base
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="GramVenture AI Backend", version="0.1.0")
+app = FastAPI(title="Nayak AI Backend", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -60,7 +60,7 @@ load_dotenv()
 
 class Config:
     APP_ENV = os.getenv("APP_ENV", "development")
-    DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./gramventure.db")
+    DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./nayakai.db")
     LLM_API_KEY = os.getenv("LLM_API_KEY", "")
     LLM_PROVIDER = os.getenv("LLM_PROVIDER", "mock")
 
@@ -214,7 +214,7 @@ router = APIRouter()
 def health_check():
     return {
         "status": "ok",
-        "service": "GramVenture AI Backend",
+        "service": "Nayak AI Backend",
         "version": "0.1.0"
     }
 INNEREOF

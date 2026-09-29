@@ -4,7 +4,7 @@ const router = express.Router();
 router.get('/health', (req, res) => {
     res.json({
         status: "ok",
-        service: "GramVenture AI Backend",
+        service: "Nayak AI Backend",
         version: "0.1.0"
     });
 });

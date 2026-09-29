@@ -11,7 +11,7 @@ export function Footer() {
             <div className="w-6 h-6 rounded bg-primary/20 flex items-center justify-center">
               <TrendingUp className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-bold text-lg text-white">GramVenture AI</span>
+            <span className="font-bold text-lg text-white">Nayak AI</span>
           </div>
           <p className="text-slate-400 text-sm max-w-sm mb-6">
             AI-powered business intelligence for rural entrepreneurs. Turn local opportunity into a bankable business plan.

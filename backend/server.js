@@ -30,9 +30,9 @@ const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
-      title: 'GramVenture AI Backend API',
+      title: 'Nayak AI Backend API',
       version: '1.0.0',
-      description: 'API documentation for GramVenture AI SIH 2026 Prototype',
+      description: 'API documentation for Nayak AI SIH 2026 Prototype',
     },
     servers: [
       {

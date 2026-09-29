@@ -3,9 +3,9 @@ cd backend
 
 cat << 'INNEREOF' > package.json
 {
-  "name": "gramventure-backend",
+  "name": "nayakai-backend",
   "version": "1.0.0",
-  "description": "Prototype backend for GramVenture AI",
+  "description": "Prototype backend for Nayak AI",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -29,14 +29,14 @@ INNEREOF
 cat << 'INNEREOF' > .env.example
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb://localhost:27017/gramventure
+MONGO_URI=mongodb://localhost:27017/nayakai
 LLM_API_KEY=
 LLM_PROVIDER=mock
 INNEREOF
 
 cat << 'INNEREOF' > README.md
-# GramVenture AI Backend
-Prototype Node.js backend for GramVenture AI (SIH 2026).
+# Nayak AI Backend
+Prototype Node.js backend for Nayak AI (SIH 2026).
 INNEREOF
 
 mkdir -p config models routes services tests
@@ -85,7 +85,7 @@ const router = express.Router();
 router.get('/health', (req, res) => {
     res.json({
         status: "ok",
-        service: "GramVenture AI Backend",
+        service: "Nayak AI Backend",
         version: "0.1.0"
     });
 });
